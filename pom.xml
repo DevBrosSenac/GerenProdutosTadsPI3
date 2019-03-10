@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.senac.tads.pi3.devbros</groupId>
+    <artifactId>gerenciadordeprodutos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    
+    <organization>
+        <name>Dev Bros</name>
+    </organization>
+    
+    <developers>
+        <developer>
+            <id>GSantana-devbros</id>
+            <name>Gabriela Santana Vitória Marques</name>
+        </developer>
+        <developer>
+            <id>NOliveira-devbros</id>
+            <name>Nathan Oliveira Santos</name>
+        </developer>
+        <developer>
+            <id>PAugusto-devbros</id>
+            <name>Pedro Augusto Rossi Souza</name>
+        </developer>
+        <developer>
+            <id>PPaula-devbros</id>
+            <name>Priscyla de Paula Oliveira</name>
+        </developer>
+        <developer>
+            <id>Rsouza-devbros</id>
+            <name>Ramsés Carneiro de Souza</name>
+        </developer>
+        <developer>
+            <id>VMatheus-devbros</id>
+            <name>Vitor Matheus Alves de Oliveira</name>
+        </developer>
+    </developers>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
+        </dependency>
+    </dependencies>
+</project>
