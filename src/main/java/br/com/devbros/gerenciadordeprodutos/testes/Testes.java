@@ -1,20 +1,16 @@
-/*
-* Classe principal do projeto.
-*/
+package br.com.devbros.gerenciadordeprodutos.testes;
 
-package br.senac.tads.pi3.devbros.gerenciadordeprodutos;
-
-import br.senac.tads.pi3.devbros.gerenciadordeprodutos.DAO.ProdutoDao;
-import br.senac.tads.pi3.devbros.gerenciadordeprodutos.Produto.Produto;
+import br.com.devbros.gerenciadordeprodutos.db.dao.ProdutoDao;
+import br.com.devbros.gerenciadordeprodutos.model.produto.Produto;
 import java.util.Calendar;
 
 /**
  * 
- * @author Ramses Souza
+ * @Ramses Souza
  */
 public class Testes 
 {
-    public static void main(String[] args) 
+     public static void main(String[] args) 
     {
         //Pegando horário atual
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
@@ -27,5 +23,7 @@ public class Testes
         
         //Teste de inserção
         produtoDao.incluirProduto(produto1);
+        
+        System.out.println("Hello World!");
     }
 }

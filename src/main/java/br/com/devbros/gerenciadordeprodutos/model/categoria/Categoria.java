@@ -1,4 +1,4 @@
-package br.senac.tads.pi3.devbros.gerenciadordeprodutos.Categoria;
+package br.com.devbros.gerenciadordeprodutos.model.categoria;
 
 /**
  * 

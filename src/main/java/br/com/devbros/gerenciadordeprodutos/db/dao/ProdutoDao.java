@@ -1,7 +1,7 @@
-package br.senac.tads.pi3.devbros.gerenciadordeprodutos.DAO;
+package br.com.devbros.gerenciadordeprodutos.db.dao;
 
-import br.senac.tads.pi3.devbros.db.utils.ConnectionUtils;
-import br.senac.tads.pi3.devbros.gerenciadordeprodutos.Produto.Produto;
+import br.com.devbros.gerenciadordeprodutos.db.utils.ConnectionUtils;
+import br.com.devbros.gerenciadordeprodutos.model.produto.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -42,8 +42,6 @@ public class ProdutoDao extends ConnectionUtils
 
             // 2) Executar SQL
             stmt.executeUpdate();
-            System.out.println("Contato cadastrado com sucesso");
-
         } 
         catch (SQLException ex) 
         {

@@ -1,4 +1,4 @@
-package br.senac.tads.pi3.devbros.db.utils;
+package br.com.devbros.gerenciadordeprodutos.db.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

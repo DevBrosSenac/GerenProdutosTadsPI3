@@ -1,4 +1,4 @@
-package br.senac.tads.pi3.devbros.gerenciadordeprodutos.Produto;
+package br.com.devbros.gerenciadordeprodutos.model.produto;
 
 /**
  * 
