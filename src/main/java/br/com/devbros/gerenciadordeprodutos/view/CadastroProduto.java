@@ -7,7 +7,7 @@ package br.com.devbros.gerenciadordeprodutos.view;
 
 /**
  *
- * @author sunse
+ * @author priscyla-poliveira
  */
 public class CadastroProduto extends javax.swing.JFrame {
 
@@ -16,6 +16,7 @@ public class CadastroProduto extends javax.swing.JFrame {
      */
     public CadastroProduto() {
         initComponents();
+        this.setTitle("Cadastro de produtos");
     }
 
     /**

@@ -7,7 +7,7 @@ package br.com.devbros.gerenciadordeprodutos.view;
 
 /**
  *
- * @author sunse
+ * @author priscyla-poliveira
  */
 public class ConsultaProduto extends javax.swing.JFrame {
 
@@ -16,6 +16,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
      */
     public ConsultaProduto() {
         initComponents();
+        this.setTitle("Consulta de produtos");
     }
 
     /**
