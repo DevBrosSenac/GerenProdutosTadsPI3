@@ -115,7 +115,12 @@ public class ConsultaProduto extends javax.swing.JFrame {
 
         jButton3.setText("EXCLUIR");
 
-        jButton4.setText("VOLTAR");
+        jButton4.setText("CANCELAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("EDITAR");
 
@@ -228,6 +233,15 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Menu m = new Menu();
+        m.setVisible(true);
+        m.setResizable(false);
+        m.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
