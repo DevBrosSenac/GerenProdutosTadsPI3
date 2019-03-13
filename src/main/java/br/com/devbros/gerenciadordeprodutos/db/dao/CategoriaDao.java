@@ -12,7 +12,7 @@ import java.sql.SQLException;
  */
 public class CategoriaDao {
 
-    
+    // exibir categoria
         public void exibirCategoria{
     
     PreparedStatement stmt = null;
