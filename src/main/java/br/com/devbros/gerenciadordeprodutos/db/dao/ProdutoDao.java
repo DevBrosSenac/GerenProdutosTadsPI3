@@ -36,9 +36,7 @@ public class ProdutoDao extends ConnectionUtils
             stmt.setFloat(4, produto.getprecoDeVenda());
             stmt.setInt(5, produto.getQuantidade());
             stmt.setBoolean(6, true);
-            //data/hora (timestamp) atual
-            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-            stmt.setDate(7, date);
+            stmt.setDate(7, produto.getData_cadastro());
 
             // 2) Executar SQL
             stmt.executeUpdate();

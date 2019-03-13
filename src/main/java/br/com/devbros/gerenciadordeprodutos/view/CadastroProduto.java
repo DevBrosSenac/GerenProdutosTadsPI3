@@ -5,6 +5,11 @@
  */
 package br.com.devbros.gerenciadordeprodutos.view;
 
+import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
+import br.com.devbros.gerenciadordeprodutos.model.Produto;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author priscyla-poliveira
@@ -54,6 +59,11 @@ public class CadastroProduto extends javax.swing.JFrame {
         jLabel5.setText("QUANTIDADE:");
 
         jButton1.setText("CADASTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         cancelarButton.setText("CANCELAR");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +146,41 @@ public class CadastroProduto extends javax.swing.JFrame {
         m.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Nova instancia de ProdutoController
+        ProdutoController pc = new ProdutoController();
+        
+        //Nova instancia de um Produto
+        Produto produto = new Produto();
+        
+        //Recebe os valores da tela
+        produto.setNome(jTextField1.getText());
+        produto.setDescricao(jTextField2.getText());
+        produto.setprecoDeCompra(Float.parseFloat(jTextField3.getText()));//precisa de tratamento
+        produto.setprecoDeVenda(Float.parseFloat(jTextField4.getText()));//precisa de tratamento
+        produto.setQuantidade(Integer.parseInt(jSpinner1.getValue().toString()));
+        //data/hora (timestamp) atual
+        java.sql.Date date_insert = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        
+        //Chama o método da Controller para inserir produto
+        pc.Salvar(produto.getNome(), produto.getDescricao(), produto.getprecoDeVenda(), 
+                produto.getprecoDeCompra(), produto.getQuantidade(), true, date_insert);
+        
+        //Mensagem de produto cadastrado (precisa de tratamento)
+        JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso!",
+                        "Cadastro efetuado", JOptionPane.INFORMATION_MESSAGE);
+        
+        //Limpa os campos da tela
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jSpinner1.setValue(0);
+        
+        //Limpa o cliente em cadastro da tela
+        produto = null;
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
