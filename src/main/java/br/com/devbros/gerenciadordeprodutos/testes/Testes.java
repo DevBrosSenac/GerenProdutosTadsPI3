@@ -2,6 +2,7 @@ package br.com.devbros.gerenciadordeprodutos.testes;
 
 import br.com.devbros.gerenciadordeprodutos.db.dao.ProdutoDao;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
+import br.com.devbros.gerenciadordeprodutos.view.Menu;
 import java.util.Calendar;
 
 /**
@@ -25,5 +26,7 @@ public class Testes
         produtoDao.incluirProduto(produto1);
         
         System.out.println("Hello World!");
+        Menu init = new Menu();
+        init.setVisible(true);
     }
 }
