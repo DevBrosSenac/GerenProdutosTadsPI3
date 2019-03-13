@@ -74,4 +74,8 @@ public class ProdutoDao extends ConnectionUtils
             }
         }
     }
+
+    public void alterarProduto(Produto p) {
+        System.out.println("");       
+    }
 }
