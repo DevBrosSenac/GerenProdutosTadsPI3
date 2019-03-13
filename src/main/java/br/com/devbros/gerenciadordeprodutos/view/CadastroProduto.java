@@ -136,6 +136,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         m.setVisible(true);
         m.setResizable(false);
         m.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
     /**
