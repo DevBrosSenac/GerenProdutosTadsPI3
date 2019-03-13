@@ -1,7 +1,7 @@
 package br.com.devbros.gerenciadordeprodutos.testes;
 
 import br.com.devbros.gerenciadordeprodutos.db.dao.ProdutoDao;
-import br.com.devbros.gerenciadordeprodutos.model.produto.Produto;
+import br.com.devbros.gerenciadordeprodutos.model.Produto;
 import java.util.Calendar;
 
 /**
