@@ -1,7 +1,7 @@
 package br.com.devbros.gerenciadordeprodutos.db.dao;
 
 import br.com.devbros.gerenciadordeprodutos.db.utils.ConnectionUtils;
-import br.com.devbros.gerenciadordeprodutos.model.produto.Produto;
+import br.com.devbros.gerenciadordeprodutos.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
