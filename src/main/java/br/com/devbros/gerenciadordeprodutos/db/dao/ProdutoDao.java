@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class ProdutoDao extends ConnectionUtils
 {
-     public void incluirProduto(Produto produto) 
+     public static void incluirProduto(Produto produto) 
     {
                 
         //Abrir conexao e deixa ela null
@@ -136,8 +136,8 @@ public class ProdutoDao extends ConnectionUtils
             }
         }
     }
-    public void excluirProduto(Produto produto) {
-        
+    public void excluirProduto(String nome) {
+        Produto produto = new Produto();
         PreparedStatement stmt = null;
         Connection conn = null;
         Scanner input = new Scanner(System.in);

@@ -16,7 +16,7 @@ import java.sql.Date;
  *
  * @author priscyla-poliveira
  */
-public class ProdutoController {
+public class ProdutoController  {
     
     static ProdutoDao pd = new ProdutoDao();
     static ProdutoCategoriaDao pc = new ProdutoCategoriaDao();
@@ -42,7 +42,7 @@ public class ProdutoController {
         pc.consultarProdCat(pC);
     }
     
-    public static void Excluir(int id){
-
+    public static void Excluir(String nome){
+        pd.excluirProduto(nome);
     }
 }
