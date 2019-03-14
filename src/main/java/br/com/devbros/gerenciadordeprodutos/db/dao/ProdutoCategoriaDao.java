@@ -2,8 +2,6 @@ package br.com.devbros.gerenciadordeprodutos.db.dao;
 
 import br.com.devbros.gerenciadordeprodutos.db.utils.ConnectionUtils;
 import br.com.devbros.gerenciadordeprodutos.model.ProdutoCategoria;
-import br.com.devbros.gerenciadordeprodutos.model.Produto;
-import br.com.devbros.gerenciadordeprodutos.model.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,7 +12,7 @@ import java.sql.SQLException;
 public class ProdutoCategoriaDao extends ConnectionUtils{
     
     //consulta de produtos + categoria
-    public void consultarProdCat(Produto produto , Categoria categoria){
+    public void consultarProdCat(ProdutoCategoria prodCat){
     
     PreparedStatement stmt = null;
     Connection conn = null;
@@ -28,17 +26,17 @@ public class ProdutoCategoriaDao extends ConnectionUtils{
             try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNome());
+            stmt.setString(1, prodCat.getNomeProduto());
             //Dando erro pq a model Categoria ainda n está pronta
-            stmt.setString(2, categoria.getNomeCategoria());
+            stmt.setString(2, prodCat.getNomeCategoria());
             
             stmt.executeUpdate();
         } catch (SQLException ex) {
 
-            System.out.println("Não foi possível executar.");
+            System.out.println("Não foi possível executar. Falha no MySQL!");
         } catch (ClassNotFoundException ex) {
 
-            System.out.println("Não foi possível executar.");
+            System.out.println("Não foi possível executar. Falha no programa!");
         } finally {
 
             if (stmt != null) {
