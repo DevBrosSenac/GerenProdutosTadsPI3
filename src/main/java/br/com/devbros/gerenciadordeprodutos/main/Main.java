@@ -9,7 +9,9 @@ public class Main
 {
      public static void main(String[] args) 
     {      
-        Menu init = new Menu();
-        init.setVisible(true);
+        Menu m = new Menu();
+        m.setVisible(true);
+        m.setResizable(false);
+        m.setLocationRelativeTo(null);
     }
 }
