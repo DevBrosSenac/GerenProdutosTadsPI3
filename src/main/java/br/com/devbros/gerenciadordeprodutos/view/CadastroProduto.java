@@ -33,6 +33,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         nomeLabel = new javax.swing.JLabel();
         descricaoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -45,6 +46,9 @@ public class CadastroProduto extends javax.swing.JFrame {
         qtsSpinner = new javax.swing.JSpinner();
         cadastrarButton = new javax.swing.JButton();
         cancelarButton = new javax.swing.JButton();
+        disponivelLabel = new javax.swing.JLabel();
+        simButton = new javax.swing.JRadioButton();
+        naoButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,37 +76,52 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
 
+        disponivelLabel.setText("DISPONÍVEL:");
+
+        buttonGroup1.add(simButton);
+        simButton.setText("SIM");
+
+        buttonGroup1.add(naoButton);
+        naoButton.setText("NÃO");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(nomeLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nomeTxt))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(descricaoLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(descricaoTxt))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(vendaTxt))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(compraLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(compraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(cadastrarButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(cancelarButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(qtdLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nomeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomeTxt))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(descricaoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(descricaoTxt))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vendaTxt))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(compraLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(compraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cadastrarButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancelarButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(qtdLabel)
+                        .addComponent(disponivelLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(simButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(naoButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,9 +149,14 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(disponivelLabel)
+                    .addComponent(simButton)
+                    .addComponent(naoButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarButton)
                     .addComponent(cancelarButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -223,17 +247,21 @@ public class CadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
     private javax.swing.JLabel compraLabel;
     private javax.swing.JTextField compraTxt;
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextField descricaoTxt;
+    private javax.swing.JLabel disponivelLabel;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JRadioButton naoButton;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTxt;
     private javax.swing.JLabel qtdLabel;
     private javax.swing.JSpinner qtsSpinner;
+    private javax.swing.JRadioButton simButton;
     private javax.swing.JTextField vendaTxt;
     // End of variables declaration//GEN-END:variables
 }
