@@ -26,7 +26,7 @@ public class CategoriaDao extends ConnectionUtils{
             stmt = conn.prepareStatement(sql);
             //Dando erro pq a model Categoria ainda não está pronta
             stmt.setString(1, categoria.getNomeCategoria());
-            stmt.setInt(2, categoria.getId());
+            stmt.setInt(2, categoria.getIdCategoria());
 
             stmt.executeUpdate();
         } catch (SQLException ex) {
