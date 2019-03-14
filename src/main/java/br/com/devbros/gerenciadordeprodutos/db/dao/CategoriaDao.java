@@ -20,7 +20,7 @@ public class CategoriaDao {
 
         String sql = "SELECT * FROM PRODUTOBD.CATEGORIA"
                 + "ORDER BY CATEGORIA.ID";
-
+// obter conexão com BD
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
