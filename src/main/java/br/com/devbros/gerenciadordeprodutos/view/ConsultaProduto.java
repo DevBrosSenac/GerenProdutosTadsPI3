@@ -5,6 +5,8 @@
  */
 package br.com.devbros.gerenciadordeprodutos.view;
 
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author priscyla-poliveira
@@ -17,6 +19,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
     public ConsultaProduto() {
         initComponents();
         this.setTitle("Consulta de produtos");
+        desativarFormulario();
     }
 
     /**
@@ -35,16 +38,16 @@ public class ConsultaProduto extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
+        nomeLabel = new javax.swing.JLabel();
+        descricaoLabel = new javax.swing.JLabel();
+        vendaLabel = new javax.swing.JLabel();
+        compraLabel = new javax.swing.JLabel();
+        qtdLabel = new javax.swing.JLabel();
+        nomeTxt = new javax.swing.JTextField();
+        descricaoTxt = new javax.swing.JTextField();
+        vendaTxt = new javax.swing.JTextField();
+        compraTxt = new javax.swing.JTextField();
+        qtdSpinner = new javax.swing.JSpinner();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -73,7 +76,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "NOME", "DESCRIÇÃO"
+                "NOME", "CATEGORIA"
             }
         ) {
             Class[] types = new Class [] {
@@ -92,19 +95,19 @@ public class ConsultaProduto extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("EDITAR PRODUTO");
 
-        jLabel3.setText("NOME:");
+        nomeLabel.setText("NOME:");
 
-        jLabel4.setText("DESCRIÇÃO:");
+        descricaoLabel.setText("DESCRIÇÃO:");
 
-        jLabel5.setText("PREÇO DE VENDA:");
+        vendaLabel.setText("PREÇO DE VENDA:");
 
-        jLabel7.setText("PREÇO DE COMPRA:");
+        compraLabel.setText("PREÇO DE COMPRA:");
 
-        jLabel8.setText("QUANTIDADE:");
+        qtdLabel.setText("QUANTIDADE:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        nomeTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                nomeTxtActionPerformed(evt);
             }
         });
 
@@ -120,6 +123,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
         });
 
         jButton5.setText("EDITAR PRODUTO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("SELECIONAR CATEGORIA...");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -151,21 +159,21 @@ public class ConsultaProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(nomeLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nomeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(descricaoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(descricaoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(vendaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(vendaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(compraLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(compraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -173,9 +181,9 @@ public class ConsultaProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(qtdLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(qtdSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -188,24 +196,24 @@ public class ConsultaProduto extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nomeLabel)
+                            .addComponent(nomeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(descricaoLabel)
+                            .addComponent(descricaoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(vendaLabel)
+                            .addComponent(vendaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(compraLabel)
+                            .addComponent(compraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(qtdLabel)
+                            .addComponent(qtdSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
@@ -230,10 +238,43 @@ public class ConsultaProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void nomeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
+    }//GEN-LAST:event_nomeTxtActionPerformed
+    
+    public void desativarFormulario(){
+        nomeLabel.setEnabled(false);
+        nomeTxt.setEditable(false);
+        descricaoLabel.setEnabled(false);
+        descricaoTxt.setEditable(true);
+        vendaLabel.setEnabled(false);
+        vendaTxt.setEditable(false);
+        compraLabel.setEnabled(false);
+        compraTxt.setEditable(false);
+        qtdLabel.setEnabled(false);
+        qtdSpinner.setEnabled(false);
+    }
+    public void ativarFormulario(){
+        nomeLabel.setEnabled(true);
+        nomeTxt.setEditable(true);
+        descricaoLabel.setEnabled(true);
+        descricaoTxt.setEditable(true);
+        vendaLabel.setEnabled(true);
+        vendaTxt.setEditable(true);
+        compraLabel.setEnabled(true);
+        compraTxt.setEditable(true);
+        qtdLabel.setEnabled(true);
+        qtdSpinner.setEnabled(true);
+    }
+    
+    public void limparFormulario(){
+        nomeTxt.setText("");
+        descricaoTxt.setText("");
+        vendaTxt.setText("");
+        compraTxt.setText("");
+        qtdSpinner.setValue(0);
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu();
@@ -251,6 +292,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
         p.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        ativarFormulario();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +334,10 @@ public class ConsultaProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel compraLabel;
+    private javax.swing.JTextField compraTxt;
+    private javax.swing.JLabel descricaoLabel;
+    private javax.swing.JTextField descricaoTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -296,19 +346,15 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JTextField nomeTxt;
+    private javax.swing.JLabel qtdLabel;
+    private javax.swing.JSpinner qtdSpinner;
+    private javax.swing.JLabel vendaLabel;
+    private javax.swing.JTextField vendaTxt;
     // End of variables declaration//GEN-END:variables
 }
