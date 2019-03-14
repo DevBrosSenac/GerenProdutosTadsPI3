@@ -5,8 +5,11 @@
  */
 package br.com.devbros.gerenciadordeprodutos.controller;
 
+import br.com.devbros.gerenciadordeprodutos.db.dao.ProdutoCategoriaDao;
 import br.com.devbros.gerenciadordeprodutos.db.dao.ProdutoDao;
+import br.com.devbros.gerenciadordeprodutos.model.Categoria;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
+import br.com.devbros.gerenciadordeprodutos.model.ProdutoCategoria;
 import java.sql.Date;
 
 /**
@@ -16,6 +19,7 @@ import java.sql.Date;
 public class ProdutoController {
     
     static ProdutoDao pd = new ProdutoDao();
+    static ProdutoCategoriaDao pc = new ProdutoCategoriaDao();
     
     public static void Salvar(String nome, String descricao, float precoDeVenda, 
                               float precoDeCompra, int quantidade, boolean disponivel, 
@@ -29,11 +33,13 @@ public class ProdutoController {
     
     public static void Alterar(String nome, String descricao, float precoDeVenda, 
                                float precoDeCompra, int quantidade, boolean disponivel){
-
+        Produto p = new Produto(nome, descricao, precoDeVenda, precoDeCompra, quantidade, disponivel);
+        pd.alterarProduto(p);
     }
     
-    public static void Consultar(){
-
+    public static void Consultar(String nomeProd, String nomeCat){
+        ProdutoCategoria pC = new ProdutoCategoria(nomeProd,nomeCat);
+        pc.consultarProdCat(pC);
     }
     
     public static void Excluir(int id){
