@@ -13,7 +13,7 @@ import java.sql.Date;
  *
  * @author priscyla-poliveira
  */
-public class ProdutoController {
+public class ProdutoController  {
     
     static ProdutoDao pd = new ProdutoDao();
     
@@ -37,7 +37,7 @@ public class ProdutoController {
 
     }
     
-    public static void Excluir(int id){
-
+    public static void Excluir(String nome){
+        ProdutoDao.excluirProduto(nome);
     }
 }
