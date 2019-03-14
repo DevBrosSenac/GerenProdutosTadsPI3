@@ -32,6 +32,10 @@ public class Produto
         this.data_cadastro = data_cadastro;
     }
 
+    public Produto(String nome, String descricao, float precoDeVenda, float precoDeCompra, int quantidade, boolean disponivel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNome() {
         return nome;
     }
