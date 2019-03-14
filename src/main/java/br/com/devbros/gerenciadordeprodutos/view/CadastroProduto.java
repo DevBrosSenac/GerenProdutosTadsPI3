@@ -33,30 +33,30 @@ public class CadastroProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nomeLabel = new javax.swing.JLabel();
+        descricaoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
+        compraLabel = new javax.swing.JLabel();
+        qtdLabel = new javax.swing.JLabel();
+        nomeTxt = new javax.swing.JTextField();
+        descricaoTxt = new javax.swing.JTextField();
+        vendaTxt = new javax.swing.JTextField();
+        compraTxt = new javax.swing.JTextField();
+        qtsSpinner = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         cancelarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("NOME:");
+        nomeLabel.setText("NOME:");
 
-        jLabel2.setText("DESCRIÇÃO:");
+        descricaoLabel.setText("DESCRIÇÃO:");
 
         jLabel3.setText("PREÇO DE VENDA:");
 
-        jLabel4.setText("PREÇO DE COMPRA:");
+        compraLabel.setText("PREÇO DE COMPRA:");
 
-        jLabel5.setText("QUANTIDADE:");
+        qtdLabel.setText("QUANTIDADE:");
 
         jButton1.setText("CADASTRAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,29 +80,29 @@ public class CadastroProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(nomeLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(nomeTxt))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(descricaoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2))
+                        .addComponent(descricaoTxt))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3))
+                        .addComponent(vendaTxt))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(compraLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                        .addComponent(compraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(cancelarButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(qtdLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,24 +110,24 @@ public class CadastroProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeLabel)
+                    .addComponent(nomeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(descricaoLabel)
+                    .addComponent(descricaoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vendaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(compraLabel)
+                    .addComponent(compraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(qtdLabel)
+                    .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -155,11 +155,11 @@ public class CadastroProduto extends javax.swing.JFrame {
         Produto produto = new Produto();
         
         //Recebe os valores da tela
-        produto.setNome(jTextField1.getText());
-        produto.setDescricao(jTextField2.getText());
-        produto.setprecoDeCompra(Float.parseFloat(jTextField3.getText()));//precisa de tratamento
-        produto.setprecoDeVenda(Float.parseFloat(jTextField4.getText()));//precisa de tratamento
-        produto.setQuantidade(Integer.parseInt(jSpinner1.getValue().toString()));
+        produto.setNome(nomeTxt.getText());
+        produto.setDescricao(descricaoTxt.getText());
+        produto.setprecoDeCompra(Float.parseFloat(vendaTxt.getText()));//precisa de tratamento
+        produto.setprecoDeVenda(Float.parseFloat(compraTxt.getText()));//precisa de tratamento
+        produto.setQuantidade(Integer.parseInt(qtsSpinner.getValue().toString()));
         //data/hora (timestamp) atual
         java.sql.Date date_insert = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         
@@ -171,17 +171,22 @@ public class CadastroProduto extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso!",
                         "Cadastro efetuado", JOptionPane.INFORMATION_MESSAGE);
         
-        //Limpa os campos da tela
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jSpinner1.setValue(0);
+        //Limpa os campos da tela chamando o método
+        limpaFormulario();
         
         //Limpa o cliente em cadastro da tela
         produto = null;
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    //Limpa os campos da tela
+    public void limpaFormulario(){
+        nomeTxt.setText("");
+        descricaoTxt.setText("");
+        vendaTxt.setText("");
+        compraTxt.setText("");
+        qtsSpinner.setValue(0);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -219,16 +224,16 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarButton;
+    private javax.swing.JLabel compraLabel;
+    private javax.swing.JTextField compraTxt;
+    private javax.swing.JLabel descricaoLabel;
+    private javax.swing.JTextField descricaoTxt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JTextField nomeTxt;
+    private javax.swing.JLabel qtdLabel;
+    private javax.swing.JSpinner qtsSpinner;
+    private javax.swing.JTextField vendaTxt;
     // End of variables declaration//GEN-END:variables
 }
