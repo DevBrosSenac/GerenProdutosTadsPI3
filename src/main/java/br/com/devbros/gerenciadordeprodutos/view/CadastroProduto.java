@@ -43,7 +43,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         vendaTxt = new javax.swing.JTextField();
         compraTxt = new javax.swing.JTextField();
         qtsSpinner = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        cadastrarButton = new javax.swing.JButton();
         cancelarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,10 +58,10 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         qtdLabel.setText("QUANTIDADE:");
 
-        jButton1.setText("CADASTRAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarButton.setText("CADASTRAR");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cadastrarButtonActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(compraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(cadastrarButton)
                         .addGap(18, 18, 18)
                         .addComponent(cancelarButton))
                     .addGroup(layout.createSequentialGroup()
@@ -130,7 +130,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(qtsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(cadastrarButton)
                     .addComponent(cancelarButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -147,7 +147,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         //Nova instancia de ProdutoController
         ProdutoController pc = new ProdutoController();
         
@@ -176,7 +176,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         
         //Limpa o cliente em cadastro da tela
         produto = null;
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
     
     //Limpa os campos da tela
     public void limpaFormulario(){
@@ -223,12 +223,12 @@ public class CadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
     private javax.swing.JLabel compraLabel;
     private javax.swing.JTextField compraTxt;
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextField descricaoTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTxt;
