@@ -29,7 +29,8 @@ public class ProdutoController {
     
     public static void Alterar(String nome, String descricao, float precoDeVenda, 
                                float precoDeCompra, int quantidade, boolean disponivel){
-
+        Produto p = new Produto(nome, descricao, precoDeVenda, precoDeCompra, quantidade, disponivel);
+        pd.alterarProduto(p);
     }
     
     public static void Consultar(){

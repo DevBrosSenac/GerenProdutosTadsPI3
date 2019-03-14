@@ -15,6 +15,7 @@ public class Produto
     private int quantidade;
     private boolean disponivel;
     private Date data_cadastro;
+    private int id;
 
     public Produto() {
     }
@@ -30,6 +31,10 @@ public class Produto
         this.quantidade = quantidade;
         this.disponivel = disponivel;
         this.data_cadastro = data_cadastro;
+    }
+
+    public Produto(String nome, String descricao, float precoDeVenda, float precoDeCompra, int quantidade, boolean disponivel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNome() {
@@ -87,6 +92,14 @@ public class Produto
 
     public void setData_cadastro(Date data_cadastro) {
         this.data_cadastro = data_cadastro;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+
+        this.id = id;
     }
     
 }
