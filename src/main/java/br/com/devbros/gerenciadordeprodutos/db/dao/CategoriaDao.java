@@ -10,22 +10,23 @@ import java.sql.SQLException;
  *
  * @author pedro.arsouza1
  */
-public class CategoriaDao {
+public class CategoriaDao extends ConnectionUtils{
 
     
-        public void exibirCategoria{
+        public void exibirCategoria(Categoria categoria){
     
     PreparedStatement stmt = null;
         Connection conn = null;
 
         String sql = "SELECT * FROM PRODUTOBD.CATEGORIA"
-                + "ORDER BY CATEGORIA.ID";
+                + "ORDER BY CATEGORIA.ID;";
 // obter conexão com BD
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, categoria.getNome());
-            stmt.setString(2, categoria.getId());
+            //Dando erro pq a model Categoria ainda não está pronta
+            stmt.setString(1, categoria.getNomeCategoria());
+            stmt.setInt(2, categoria.getId());
 
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -59,3 +60,4 @@ public class CategoriaDao {
 
         }
 }    
+}
