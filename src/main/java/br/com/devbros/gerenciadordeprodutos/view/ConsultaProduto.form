@@ -76,9 +76,19 @@
                       <Component id="compraTxt" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="qtdLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="qtdLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="disponivelLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="qtdSpinner" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="qtdSpinner" min="-2" pref="51" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="simButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="naoButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -117,6 +127,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="qtdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="qtdSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="disponivelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="simButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="naoButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -275,6 +291,27 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="categoriaButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="disponivelLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DISPON&#xcd;VEL:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="simButton">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="disponivelButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="SIM"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="naoButton">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="disponivelButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xc3;O"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

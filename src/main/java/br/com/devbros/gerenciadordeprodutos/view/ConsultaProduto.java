@@ -54,6 +54,9 @@ public class ConsultaProduto extends javax.swing.JFrame {
         cancelarButton = new javax.swing.JButton();
         editarButton = new javax.swing.JButton();
         categoriaButton = new javax.swing.JButton();
+        disponivelLabel = new javax.swing.JLabel();
+        simButton = new javax.swing.JRadioButton();
+        naoButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +145,14 @@ public class ConsultaProduto extends javax.swing.JFrame {
             }
         });
 
+        disponivelLabel.setText("DISPONÍVEL:");
+
+        disponivelButtonGroup.add(simButton);
+        simButton.setText("SIM");
+
+        disponivelButtonGroup.add(naoButton);
+        naoButton.setText("NÃO");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,9 +198,16 @@ public class ConsultaProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(compraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(qtdLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(qtdLabel)
+                            .addComponent(disponivelLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(qtdSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(qtdSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(simButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(naoButton)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -220,6 +238,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(qtdLabel)
                             .addComponent(qtdSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(disponivelLabel)
+                            .addComponent(simButton)
+                            .addComponent(naoButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(salvarButton)
@@ -259,6 +282,9 @@ public class ConsultaProduto extends javax.swing.JFrame {
         compraTxt.setEditable(false);
         qtdLabel.setEnabled(false);
         qtdSpinner.setEnabled(false);
+        disponivelLabel.setEnabled(false);
+        simButton.setEnabled(false);
+        naoButton.setEnabled(false);
     }
     
     public void ativarFormulario(){
@@ -272,6 +298,9 @@ public class ConsultaProduto extends javax.swing.JFrame {
         compraTxt.setEditable(true);
         qtdLabel.setEnabled(true);
         qtdSpinner.setEnabled(true);
+        disponivelLabel.setEnabled(true);
+        simButton.setEnabled(true);
+        naoButton.setEnabled(true);
     }
     
     public void limparFormulario(){
@@ -280,6 +309,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
         vendaTxt.setText("");
         compraTxt.setText("");
         qtdSpinner.setValue(0);
+        disponivelButtonGroup.clearSelection();
     }
     
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
@@ -353,6 +383,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextField descricaoTxt;
     private javax.swing.ButtonGroup disponivelButtonGroup;
+    private javax.swing.JLabel disponivelLabel;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton excluirButton;
     private javax.swing.JLabel jLabel1;
@@ -361,12 +392,14 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton naoButton;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTxt;
     private javax.swing.JButton pesquisarButton;
     private javax.swing.JLabel qtdLabel;
     private javax.swing.JSpinner qtdSpinner;
     private javax.swing.JButton salvarButton;
+    private javax.swing.JRadioButton simButton;
     private javax.swing.JLabel vendaLabel;
     private javax.swing.JTextField vendaTxt;
     // End of variables declaration//GEN-END:variables
