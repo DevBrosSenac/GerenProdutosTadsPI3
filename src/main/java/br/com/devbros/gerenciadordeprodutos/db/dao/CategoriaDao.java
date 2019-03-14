@@ -12,6 +12,8 @@ import java.sql.SQLException;
  */
 public class CategoriaDao extends ConnectionUtils{
 
+    // exibir categoria
+        public void exibirCategoria{
     
         public void exibirCategoria(Categoria categoria){
     
@@ -59,5 +61,8 @@ public class CategoriaDao extends ConnectionUtils{
             }
 
         }
+}
+        
+}
 }    
 }
