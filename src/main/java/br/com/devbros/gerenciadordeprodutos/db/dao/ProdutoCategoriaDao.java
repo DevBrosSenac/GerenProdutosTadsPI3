@@ -9,33 +9,34 @@ import java.sql.SQLException;
  *
  * @author pedro.arsouza1
  */
-public class ProdutoCategoriaDao {
+public class ProdutoCategoriaDao extends ConnectionUtils{
     
     //consulta de produtos + categoria
-    public void consultarProdCat{
+    public void consultarProdCat(ProdutoCategoria prodCat){
     
-    PreparedStatement = null;
+    PreparedStatement stmt = null;
     Connection conn = null;
     
     String sql = "SELECT P.NOME, C.NOME FROM PRODUTOBD.PRODUTO P"
             + "INNER JOIN PRODUTOBD.PRODUTO_CATEGORIA PC"
             + "ON P.ID = PC.ID_PRODUTO "
             + "INNER JOIN PRODUTOBD.CATEGORIA C"
-            + "ON C.ID = PC.ID_CATEGORIA;"
+            + "ON C.ID = PC.ID_CATEGORIA;";
             
             try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNome());
-            stmt.setString(2, categoria.getNome());
+            stmt.setString(1, prodCat.getNomeProduto());
+            //Dando erro pq a model Categoria ainda n está pronta
+            stmt.setString(2, prodCat.getNomeCategoria());
             
             stmt.executeUpdate();
         } catch (SQLException ex) {
 
-            System.out.println("Não foi possível executar.");
+            System.out.println("Não foi possível executar. Falha no MySQL!");
         } catch (ClassNotFoundException ex) {
 
-            System.out.println("Não foi possível executar.");
+            System.out.println("Não foi possível executar. Falha no programa!");
         } finally {
 
             if (stmt != null) {
