@@ -5,6 +5,7 @@
  */
 package br.com.devbros.gerenciadordeprodutos.view;
 
+import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
 import javax.swing.SpinnerNumberModel;
 
 /**
@@ -123,6 +124,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
         });
 
         excluirButton.setText("EXCLUIR");
+        excluirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirButtonActionPerformed(evt);
+            }
+        });
 
         cancelarButton.setText("CANCELAR");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -270,8 +276,8 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private void nomeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeTxtActionPerformed
-    
-    public void desativarFormulario(){
+
+    public void desativarFormulario() {
         nomeLabel.setEnabled(false);
         nomeTxt.setEditable(false);
         descricaoLabel.setEnabled(false);
@@ -286,8 +292,8 @@ public class ConsultaProduto extends javax.swing.JFrame {
         simButton.setEnabled(false);
         naoButton.setEnabled(false);
     }
-    
-    public void ativarFormulario(){
+
+    public void ativarFormulario() {
         nomeLabel.setEnabled(true);
         nomeTxt.setEditable(true);
         descricaoLabel.setEnabled(true);
@@ -302,8 +308,8 @@ public class ConsultaProduto extends javax.swing.JFrame {
         simButton.setEnabled(true);
         naoButton.setEnabled(true);
     }
-    
-    public void limparFormulario(){
+
+    public void limparFormulario() {
         nomeTxt.setText("");
         descricaoTxt.setText("");
         vendaTxt.setText("");
@@ -311,7 +317,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
         qtdSpinner.setValue(0);
         disponivelButtonGroup.clearSelection();
     }
-    
+
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu();
@@ -339,6 +345,13 @@ public class ConsultaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         limparFormulario();
     }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
+        if (jTable1.getRowCount() > 0) {
+            int numeroLinha = jTable1.getSelectedRow();
+            ProdutoController.Excluir(jTable1.getValueAt(numeroLinha,0).toString());                     
+        } 
+    }//GEN-LAST:event_excluirButtonActionPerformed
 
     /**
      * @param args the command line arguments

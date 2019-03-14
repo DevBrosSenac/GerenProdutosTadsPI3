@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 public class ProdutoDao extends ConnectionUtils
 {
-     public void incluirProduto(Produto produto) 
+     public static void incluirProduto(Produto produto) 
     {
                 
         //Abrir conexao e deixa ela null
@@ -75,7 +75,7 @@ public class ProdutoDao extends ConnectionUtils
         }
     }
 
-    public void alterarProduto(Produto p) {
+    public static void alterarProduto(Produto p) {
         System.out.println("");       
     }
 }
