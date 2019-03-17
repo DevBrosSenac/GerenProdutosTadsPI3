@@ -4,7 +4,9 @@ import br.com.devbros.gerenciadordeprodutos.db.utils.ConnectionUtils;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -147,7 +149,7 @@ public class ProdutoDao extends ConnectionUtils
         int id = input.nextInt();
         String sql = "DELETE FROM PRODUTOBD.PRODUTO WHERE ID ="+id+"";
         
-        //Obten conexão para SQL workbench
+        //Obtem conexão para SQL workbench
         try 
         {
             conn = obterConexao();
@@ -190,5 +192,71 @@ public class ProdutoDao extends ConnectionUtils
         }
     }
     
+    public static ArrayList<Produto> getProdutos(){
+        //Cria uma list para inserir os produtos cadastrados no banco de dados
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
+        
+        //Abrir conexao e deixa ela null
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        
+        String sql = "SELECT * FROM PRODUTOBD.PRODUTO";
+        
+        try 
+        {
+            conn = obterConexao();
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            
+             while(rs.next()){
+                Produto p = new Produto();
+                p.setId(rs.getInt("ID"));
+                p.setNome(rs.getString("NOME"));
+                p.setDescricao(rs.getString("DESCRICAO"));
+                p.setprecoDeCompra(rs.getFloat("PRECO_COMPRA"));
+                p.setprecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setQuantidade(rs.getInt("QUANTIDADE"));
+                //p.setDisponivel(rs.getBoolean("DISPONIVEL"));
+                //p.setData_cadastro(rs.getDate("DT_CADASTRO"));
+                listaProdutos.add(p);
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            System.out.println("Não foi possível executar, por conta do MySQL");
+            listaProdutos = null;
+        } 
+        catch (ClassNotFoundException ex) 
+        {
+            System.out.println("Não foi possível executar, por conta de erro no programa.");
+        } finally 
+        {
+            if (stmt != null) 
+            {
+                try 
+                {
+                    stmt.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Erro ao fechar stmt.");
+                    listaProdutos = null;
+                }
+            }
+            if (conn != null) 
+            {
+                try 
+                {
+                    conn.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Erro ao fechar conn.");
+                }
+            }
+        }
+        
+        return listaProdutos;
     }
+}
 
