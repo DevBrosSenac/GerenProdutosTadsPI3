@@ -7,6 +7,7 @@ package br.com.devbros.gerenciadordeprodutos.view;
 
 import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
+import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -170,7 +171,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         m.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
-
+    
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         //Nova instancia de ProdutoController
         ProdutoController pc = new ProdutoController();
@@ -190,6 +191,9 @@ public class CadastroProduto extends javax.swing.JFrame {
         //Chama o método da Controller para inserir produto
         pc.Salvar(produto.getNome(), produto.getDescricao(), produto.getprecoDeVenda(), 
                 produto.getprecoDeCompra(), produto.getQuantidade(), true, date_insert);
+        
+        //Atualiza na tabela na janela pra consultar produto
+        ConsultaProduto.loadTabela();
         
         //Mensagem de produto cadastrado (precisa de tratamento)
         JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso!",
