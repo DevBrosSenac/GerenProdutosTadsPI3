@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class ConnectionUtils 
 {
-    protected Connection obterConexao() throws ClassNotFoundException, 
+    public static Connection obterConexao() throws ClassNotFoundException, 
             SQLException 
     {
         Connection conn = null;

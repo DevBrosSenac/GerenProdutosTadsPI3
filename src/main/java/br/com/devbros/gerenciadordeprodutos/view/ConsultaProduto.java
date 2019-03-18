@@ -5,7 +5,11 @@
  */
 package br.com.devbros.gerenciadordeprodutos.view;
 
+import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +40,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         pesquisarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        produtoTabela = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         nomeLabel = new javax.swing.JLabel();
@@ -66,7 +70,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
 
         pesquisarButton.setText("PESQUISAR");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -91,7 +95,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(produtoTabela);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -123,6 +127,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
         });
 
         excluirButton.setText("EXCLUIR");
+        excluirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirButtonActionPerformed(evt);
+            }
+        });
 
         cancelarButton.setText("CANCELAR");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -270,12 +279,12 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private void nomeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeTxtActionPerformed
-    
-    public void desativarFormulario(){
+
+    public void desativarFormulario() {
         nomeLabel.setEnabled(false);
         nomeTxt.setEditable(false);
         descricaoLabel.setEnabled(false);
-        descricaoTxt.setEditable(true);
+        descricaoTxt.setEditable(false);
         vendaLabel.setEnabled(false);
         vendaTxt.setEditable(false);
         compraLabel.setEnabled(false);
@@ -286,8 +295,8 @@ public class ConsultaProduto extends javax.swing.JFrame {
         simButton.setEnabled(false);
         naoButton.setEnabled(false);
     }
-    
-    public void ativarFormulario(){
+
+    public void ativarFormulario() {
         nomeLabel.setEnabled(true);
         nomeTxt.setEditable(true);
         descricaoLabel.setEnabled(true);
@@ -302,8 +311,8 @@ public class ConsultaProduto extends javax.swing.JFrame {
         simButton.setEnabled(true);
         naoButton.setEnabled(true);
     }
-    
-    public void limparFormulario(){
+
+    public void limparFormulario() {
         nomeTxt.setText("");
         descricaoTxt.setText("");
         vendaTxt.setText("");
@@ -311,7 +320,21 @@ public class ConsultaProduto extends javax.swing.JFrame {
         qtdSpinner.setValue(0);
         disponivelButtonGroup.clearSelection();
     }
-    
+
+    public static void loadTabela(){
+        //Peço ao controller resgatar os produtos do banco de dados
+        ArrayList<String[]> listaProdutos = ProdutoController.getProdutos();
+        
+        //Crio manualmente um modelo para a tabela e defino as colunas
+        DefaultTableModel tmProdutos = new DefaultTableModel();
+        tmProdutos.addColumn("NOME");
+        tmProdutos.addColumn("CATEGORIA");
+        produtoTabela.setModel(tmProdutos);
+        
+        //Para cada produto resgatado do banco de dados, atualizo a tabela
+        listaProdutos.forEach(tmProdutos::addRow);
+    }
+
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu();
@@ -332,13 +355,37 @@ public class ConsultaProduto extends javax.swing.JFrame {
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
-        ativarFormulario();
+        if(produtoTabela.getRowCount() > 0){
+            if(produtoTabela.getSelectedRow() >= 0){
+                ativarFormulario();
+                
+                //Atribuo os valores que estão na linha selecionada para a tabela
+                nomeTxt.setText(produtoTabela.getModel().getValueAt(produtoTabela.getSelectedRow(), 0).toString());
+                categoriaButton.setText(produtoTabela.getModel().getValueAt(produtoTabela.getSelectedRow(), 1).toString());
+
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Selecione um produto para editar!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this,"Não há produto para editar!");
+        }
     }//GEN-LAST:event_editarButtonActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
         limparFormulario();
     }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
+        if (produtoTabela.getRowCount() > 0) {
+            int numeroLinha = produtoTabela.getSelectedRow();
+            ProdutoController.Excluir(produtoTabela.getValueAt(numeroLinha,0).toString());
+            JOptionPane.showMessageDialog(this,"Produto excluído da base de dados");
+        } else{
+            JOptionPane.showMessageDialog(this,"Não há produtos para excluir!");
+        }
+    }//GEN-LAST:event_excluirButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,12 +437,12 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButton naoButton;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTxt;
     private javax.swing.JButton pesquisarButton;
+    private static javax.swing.JTable produtoTabela;
     private javax.swing.JLabel qtdLabel;
     private javax.swing.JSpinner qtdSpinner;
     private javax.swing.JButton salvarButton;
