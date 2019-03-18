@@ -8,21 +8,22 @@ import java.sql.Date;
 
 public class Produto 
 {
+    private int id;
     private String nome;
     private String descricao;
-    private float precoDeVenda;
     private float precoDeCompra;
+    private float precoDeVenda;
     private int quantidade;
     private boolean disponivel;
     private Date data_cadastro;
-    private int id;
+    private Categoria categoria;
 
     public Produto() {
     }
 
     public Produto(String nome, String descricao, float precoDeVenda, 
             float precoDeCompra, int quantidade,boolean disponivel, 
-            Date data_cadastro) 
+            Date data_cadastro, Categoria categoria) 
     {
         this.nome = nome;
         this.descricao = descricao;
@@ -31,9 +32,12 @@ public class Produto
         this.quantidade = quantidade;
         this.disponivel = disponivel;
         this.data_cadastro = data_cadastro;
+        this.categoria = categoria;
     }
 
-    public Produto(String nome, String descricao, float precoDeVenda, float precoDeCompra, int quantidade, boolean disponivel) {
+    public Produto(String nome, String descricao, float precoDeVenda, 
+            float precoDeCompra, int quantidade, boolean disponivel, 
+            Categoria categoria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -93,6 +97,7 @@ public class Produto
     public void setData_cadastro(Date data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
+    
     public int getId() {
         return id;
     }
@@ -102,6 +107,11 @@ public class Produto
         this.id = id;
     }
     
-    //Isso é apenas um teste
-    
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
