@@ -16,14 +16,13 @@ public class Produto
     private int quantidade;
     private boolean disponivel;
     private Date data_cadastro;
-    private Categoria categoria;
 
     public Produto() {
     }
 
     public Produto(String nome, String descricao, float precoDeVenda, 
             float precoDeCompra, int quantidade,boolean disponivel, 
-            Date data_cadastro, Categoria categoria) 
+            Date data_cadastro) 
     {
         this.nome = nome;
         this.descricao = descricao;
@@ -32,13 +31,11 @@ public class Produto
         this.quantidade = quantidade;
         this.disponivel = disponivel;
         this.data_cadastro = data_cadastro;
-        this.categoria = categoria;
     }
 
     public Produto(String nome, String descricao, float precoDeVenda, 
-            float precoDeCompra, int quantidade, boolean disponivel, 
-            Categoria categoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            float precoDeCompra, int quantidade, boolean disponivel) {
+    
     }
 
     public String getNome() {
@@ -106,12 +103,5 @@ public class Produto
 
         this.id = id;
     }
-    
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
+  
 }
