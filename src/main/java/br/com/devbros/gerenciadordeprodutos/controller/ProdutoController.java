@@ -32,11 +32,13 @@ public class ProdutoController  {
         pd.incluirProduto(p);
     }
     
-    public static void Alterar(String nome, String descricao, float precoDeVenda, 
-                               float precoDeCompra, int quantidade, boolean disponivel){
-        Produto p = new Produto(nome, descricao, precoDeVenda, precoDeCompra, quantidade, disponivel);
+    public static void Alterar(String descricao, float precoDeVenda,
+            float precoDeCompra, int quantidade, boolean disponivel, String nome){
+        Produto p = new Produto(descricao, precoDeVenda, precoDeCompra, quantidade, disponivel, nome);
         pd.alterarProduto(p);
     }
+    
+    /*
     
     public static void Consultar(String nomeProd, String nomeCat){
         ProdutoCategoria pC = new ProdutoCategoria(nomeProd,nomeCat);
@@ -45,15 +47,14 @@ public class ProdutoController  {
     
     public static void Excluir(String nome){
         pd.excluirProduto(nome);
-    }
+    }*/
     
     public static ArrayList<String[]> getProdutos(){
         ArrayList<Produto> produtos = ProdutoDao.getProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();
         
         for(int i=0; i < produtos.size(); i++){
-            listaProdutos.add(new String[]{String.valueOf(produtos.get(i).getId())
-                                  , produtos.get(i).getNome()
+            listaProdutos.add(new String[]{produtos.get(i).getNome()
                                   , produtos.get(i).getDescricao()
                                   , String.valueOf(produtos.get(i).getprecoDeCompra())
                                   , String.valueOf(produtos.get(i).getprecoDeVenda())

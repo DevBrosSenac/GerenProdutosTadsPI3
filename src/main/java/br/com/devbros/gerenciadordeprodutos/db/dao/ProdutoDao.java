@@ -10,24 +10,119 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 /**
  * 
  * @author Ramses Souza
  */
-public class ProdutoDao extends ConnectionUtils
+public class ProdutoDao /*extends ConnectionUtils*/
 {
+    
+    private static final String DRIVER ="com.mysql.cj.jdbc.Driver";
+    private static final String SERVIDOR = "localhost";
+    private static final String BASEDADOS = "PRODUTOBD";
+    private static final String LOGIN = "root";
+    private static final String SENHA = "";
+    private static String url = "";
+    private static Connection conexao;
+    
+    
      public static void incluirProduto(Produto produto) 
     {
-                
+        
+        boolean retorno = false;
+
+        try {
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://localhost:3307/PRODUTOBD?useTimezone=true&serverTimezone=UTC";
+            conexao = DriverManager.getConnection(url,"root","");
+    
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO PRODUTOBD.PRODUTO(NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DISPONIVEL, DT_CADASTRO)VALUES(?, ?, ?, ?, ?, ?, ?);");
+            
+            comando.setString(1, produto.getNome());
+            comando.setString(2, produto.getDescricao());
+            comando.setFloat(3, produto.getprecoDeCompra());
+            comando.setFloat(4, produto.getprecoDeVenda());
+            comando.setInt(5, produto.getQuantidade());
+            comando.setBoolean(6, true);
+            comando.setDate(7, produto.getData_cadastro());
+        
+            int linhasAfetadas = comando.executeUpdate();
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            } else {
+                retorno = false;
+            }
+            } catch (ClassNotFoundException ex) {
+            retorno = false;
+        } catch (SQLException ex) {
+            retorno = false;
+        } finally {
+            try {
+                conexao.close();
+            } catch (Exception ex) {
+                System.out.println("Não deu certo, e finalizou a conexão");
+                retorno = false;
+            }
+        }
+  
+    }
+     
+    public void alterarProduto(Produto produto) {
+        
+        boolean retorno = false;
+
+        try {
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://localhost:3307/PRODUTOBD?useTimezone=true&serverTimezone=UTC";
+            conexao = DriverManager.getConnection(url,"root","");
+    
+            PreparedStatement comando = conexao.prepareStatement("UPDATE PRODUTOBD.PRODUTO SET NOME = ?, DESCRICAO = ?, PRECO_COMPRA = ?, PRECO_VENDA = ?, QUANTIDADE = ?, DISPONIVEL = ? WHERE NOME = ?;");
+            
+            comando.setString(1, produto.getNome());
+            comando.setString(2, produto.getDescricao());
+            comando.setFloat(3, produto.getprecoDeCompra());
+            comando.setFloat(4, produto.getprecoDeVenda());
+            comando.setInt(5, produto.getQuantidade());
+            comando.setBoolean(6, true);
+            comando.setString(7, produto.getNome());
+
+           int linhasAfetadas = comando.executeUpdate();
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            } else {
+                retorno = false;
+            }
+            } catch (ClassNotFoundException ex) {
+            retorno = false;
+        } catch (SQLException ex) {
+            retorno = false;
+        } finally {
+            try {
+                conexao.close();
+            } catch (Exception ex) {
+                System.out.println("Não deu certo, e finalizou a conexão");
+                retorno = false;
+            }
+        }
+    } 
+     
+     
+     
+     
+     
+
+        
+        /*
         //Abrir conexao e deixa ela null
         PreparedStatement stmt = null;
         Connection conn = null;
         
         //Preparar string sql
-        String sql = "INSERT INTO PRODUTOBD.PRODUTO (NOME, DESCRICAO, "
-                + "PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DISPONIVEL, DT_CADASTRO)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PRODUTOBD.PRODUTO (NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DISPONIVEL, DT_CADASTRO)"
+                + " VALUES(?, ?, ?, ?, ?, ?, ?)";
         
         //Obten conexão para SQL workbench
         try 
@@ -77,9 +172,11 @@ public class ProdutoDao extends ConnectionUtils
                 }
             }
         }
-    }
+        
+        }*/
+    
 
-    public void alterarProduto(Produto produto) {
+    /*public void alterarProduto(Produto produto) {
         //Abrir conexao e deixa ela null
         PreparedStatement stmt = null;
         Connection conn = null;
@@ -191,8 +288,54 @@ public class ProdutoDao extends ConnectionUtils
             }
         }
     }
-    
+    */
+     
     public static ArrayList<Produto> getProdutos(){
+        
+     ArrayList<Produto> listaProdutos = new ArrayList<>();
+     
+        try {
+
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://localhost:3307/PRODUTOBD?useTimezone=true&serverTimezone=UTC";
+            conexao = DriverManager.getConnection(url, "root", "");
+            Statement comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery("SELECT * FROM produtos;");
+            while (rs.next()) {
+                Produto p = new Produto();
+                p.setNome(rs.getString("NOME"));
+                p.setDescricao(rs.getString("DESCRICAO"));
+                p.setprecoDeCompra(rs.getFloat("PRECO_COMPRA"));
+                p.setprecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setQuantidade(rs.getInt("QUANTIDADE"));
+                p.setDisponivel(rs.getBoolean("DISPONIVEL"));
+                p.setData_cadastro(rs.getDate("DT_CADASTRO"));
+                listaProdutos.add(p);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            listaProdutos = null;
+        } catch (SQLException ex) {
+            listaProdutos = null;
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaProdutos = null;
+            }
+        }
+
+        return listaProdutos;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         //Cria uma list para inserir os produtos cadastrados no banco de dados
         ArrayList<Produto> listaProdutos = new ArrayList<>();
         
@@ -210,14 +353,13 @@ public class ProdutoDao extends ConnectionUtils
             
              while(rs.next()){
                 Produto p = new Produto();
-                p.setId(rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
                 p.setprecoDeCompra(rs.getFloat("PRECO_COMPRA"));
                 p.setprecoDeVenda(rs.getFloat("PRECO_VENDA"));
                 p.setQuantidade(rs.getInt("QUANTIDADE"));
-                //p.setDisponivel(rs.getBoolean("DISPONIVEL"));
-                //p.setData_cadastro(rs.getDate("DT_CADASTRO"));
+                p.setDisponivel(rs.getBoolean("DISPONIVEL"));
+                p.setData_cadastro(rs.getDate("DT_CADASTRO"));
                 listaProdutos.add(p);
             }
         } 
@@ -257,6 +399,7 @@ public class ProdutoDao extends ConnectionUtils
         }
         
         return listaProdutos;
-    }
+    }*/
+
 }
 
