@@ -9,7 +9,6 @@ import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
 import java.util.ArrayList;
 import java.util.Calendar;
-import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -208,12 +207,13 @@ public class CadastroProduto extends javax.swing.JFrame {
         produto.setprecoDeVenda(Float.parseFloat(compraTxt.getText()));//precisa de tratamento
         produto.setQuantidade(Integer.parseInt(qtsSpinner.getValue().toString()));
         
-        //data/hora (timestamp) atual
+        //data atual
         java.sql.Date date_insert = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        produto.setDisponivel(simButton.isSelected());
         
         //Chama o método da Controller para inserir produto
         pc.Salvar(produto.getNome(), produto.getDescricao(), produto.getprecoDeVenda(), 
-                produto.getprecoDeCompra(), produto.getQuantidade(), true, date_insert);
+                produto.getprecoDeCompra(), produto.getQuantidade(), produto.isDisponivel(), date_insert);
         
         //Atualiza na tabela na janela pra consultar produto
         //ConsultaProduto.loadTabela();

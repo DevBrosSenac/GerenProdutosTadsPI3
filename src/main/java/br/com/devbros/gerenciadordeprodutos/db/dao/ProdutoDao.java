@@ -12,6 +12,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.sql.Timestamp;
 
 /**
  * 
@@ -36,18 +37,21 @@ public class ProdutoDao /*extends ConnectionUtils*/
 
         try {
             Class.forName(DRIVER);
-            url = "jdbc:mysql://localhost:3307/PRODUTOBD?useTimezone=true&serverTimezone=UTC";
+            url = "jdbc:mysql://localhost:3306/PRODUTOBD?useTimezone=true&serverTimezone=UTC";
             conexao = DriverManager.getConnection(url,"root","");
     
-            PreparedStatement comando = conexao.prepareStatement("INSERT INTO PRODUTOBD.PRODUTO(NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DISPONIVEL, DT_CADASTRO)VALUES(?, ?, ?, ?, ?, ?, ?);");
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO "
+                    + "PRODUTOBD.PRODUTO(NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, "
+                    + "QUANTIDADE, DISPONIVEL, DT_CADASTRO)VALUES(?, ?, ?, ?, ?, ?, ?);");
             
             comando.setString(1, produto.getNome());
             comando.setString(2, produto.getDescricao());
             comando.setFloat(3, produto.getprecoDeCompra());
             comando.setFloat(4, produto.getprecoDeVenda());
             comando.setInt(5, produto.getQuantidade());
-            comando.setBoolean(6, true);
-            comando.setDate(7, produto.getData_cadastro());
+            comando.setBoolean(6, produto.isDisponivel());
+            java.sql.Timestamp data = new java.sql.Timestamp(produto.getData_cadastro().getTime());
+            comando.setTimestamp(7, data);
         
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
