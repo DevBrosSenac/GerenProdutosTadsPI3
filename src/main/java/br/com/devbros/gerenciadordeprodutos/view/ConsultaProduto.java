@@ -400,11 +400,13 @@ public class ConsultaProduto extends javax.swing.JFrame {
             valorProcuraProduto = ProcuraProduto.getText();
         }
       
-      try{
+      /*try{
             
             
         ArrayList<String[]> linhasProdutos = ProdutoController.consultarProdCat(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
-        /*
+        
+      */
+      /*
       
         }
         
