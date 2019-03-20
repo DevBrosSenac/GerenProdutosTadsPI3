@@ -37,7 +37,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
 
         disponivelButtonGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ProcuraProduto = new javax.swing.JTextField();
         pesquisarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         produtoTabela = new javax.swing.JTable();
@@ -69,6 +69,11 @@ public class ConsultaProduto extends javax.swing.JFrame {
         jLabel1.setText("CONSULTAR PRODUTOS");
 
         pesquisarButton.setText("PESQUISAR");
+        pesquisarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisarButtonActionPerformed(evt);
+            }
+        });
 
         produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,7 +176,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(ProcuraProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pesquisarButton))
                     .addGroup(layout.createSequentialGroup()
@@ -261,7 +266,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ProcuraProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pesquisarButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,14 +383,61 @@ public class ConsultaProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_salvarButtonActionPerformed
 
     private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
-        if (produtoTabela.getRowCount() > 0) {
+        /*if (produtoTabela.getRowCount() > 0) {
             int numeroLinha = produtoTabela.getSelectedRow();
             ProdutoController.Excluir(produtoTabela.getValueAt(numeroLinha,0).toString());
             JOptionPane.showMessageDialog(this,"Produto excluído da base de dados");
         } else{
             JOptionPane.showMessageDialog(this,"Não há produtos para excluir!");
-        }
+        }*/
     }//GEN-LAST:event_excluirButtonActionPerformed
+
+    private void pesquisarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarButtonActionPerformed
+      String valorProcuraProduto = "";
+
+      if(!this.ProcuraProduto.getText().equals("")){
+        
+            valorProcuraProduto = ProcuraProduto.getText();
+        }
+      
+      /*try{
+            
+            
+        ArrayList<String[]> linhasProdutos = ProdutoController.consultarProdCat(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
+        
+      */
+      /*
+      
+        }
+        
+        
+        try {
+            
+            
+            ArrayList<String[]> linhasProdutos = ProdutoController.Pesquisar(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
+
+            DefaultTableModel tmProdutos = new DefaultTableModel();
+            tmProdutos.addColumn("Id");
+            tmProdutos.addColumn("Produto");
+            tmProdutos.addColumn("Quantidade");
+            tmProdutos.addColumn("Valor");
+            tmProdutos.addColumn("Categoria");
+            tblProdutos.setModel(tmProdutos);
+
+            for(String[] c:linhasProdutos)
+            {
+                tmProdutos.addRow(c);
+            }
+
+            tblProdutos.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+            tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(50);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_pesquisarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,6 +475,7 @@ public class ConsultaProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ProcuraProduto;
     private javax.swing.JButton cancelarButton;
     private javax.swing.JButton categoriaButton;
     private javax.swing.JLabel compraLabel;
@@ -437,7 +490,6 @@ public class ConsultaProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButton naoButton;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTxt;

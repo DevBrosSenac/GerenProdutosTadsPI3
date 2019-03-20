@@ -9,7 +9,9 @@ import br.com.devbros.gerenciadordeprodutos.controller.ProdutoController;
 import br.com.devbros.gerenciadordeprodutos.model.Produto;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +26,26 @@ public class CadastroProduto extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Cadastro de produtos");
     }
+    
+    
+    public void LoadTable(){
+        
+        //Peço ao controller resgatar os clientes do banco de dados
+        ArrayList<String[]> cadastroProdutos = ProdutoController.getProdutos();
+        
+        DefaultTableModel tmProdutos = new DefaultTableModel();
+        tmProdutos.addColumn("nomeProduto");
+        tmProdutos.addColumn("descricaoProduto");
+        tmProdutos.addColumn("precoVenda");
+        tmProdutos.addColumn("precoCompra");
+        tmProdutos.addColumn("quantidade");
+        tmProdutos.addColumn("");
+        
+        for(String[] c: cadastroProdutos)
+        {
+            tmProdutos.addRow(c);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +56,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        GrupodeBotao = new javax.swing.ButtonGroup();
         nomeLabel = new javax.swing.JLabel();
         descricaoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -79,10 +101,10 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         disponivelLabel.setText("DISPONÍVEL:");
 
-        buttonGroup1.add(simButton);
+        GrupodeBotao.add(simButton);
         simButton.setText("SIM");
 
-        buttonGroup1.add(naoButton);
+        GrupodeBotao.add(naoButton);
         naoButton.setText("NÃO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,6 +207,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         produto.setprecoDeCompra(Float.parseFloat(vendaTxt.getText()));//precisa de tratamento
         produto.setprecoDeVenda(Float.parseFloat(compraTxt.getText()));//precisa de tratamento
         produto.setQuantidade(Integer.parseInt(qtsSpinner.getValue().toString()));
+        
         //data/hora (timestamp) atual
         java.sql.Date date_insert = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         
@@ -193,7 +216,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                 produto.getprecoDeCompra(), produto.getQuantidade(), true, date_insert);
         
         //Atualiza na tabela na janela pra consultar produto
-        ConsultaProduto.loadTabela();
+        //ConsultaProduto.loadTabela();
         
         //Mensagem de produto cadastrado (precisa de tratamento)
         JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso!",
@@ -214,6 +237,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         compraTxt.setText("");
         qtsSpinner.setValue(0);
     }
+    
     
     /**
      * @param args the command line arguments
@@ -251,7 +275,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup GrupodeBotao;
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
     private javax.swing.JLabel compraLabel;

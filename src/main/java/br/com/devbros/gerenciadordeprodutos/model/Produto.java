@@ -38,6 +38,11 @@ public class Produto
     
     }
 
+    public Produto(String descricao, float precoDeVenda, 
+            float precoDeCompra, int quantidade, boolean disponivel, String nome) {
+    
+    }
+    
     public String getNome() {
         return nome;
     }

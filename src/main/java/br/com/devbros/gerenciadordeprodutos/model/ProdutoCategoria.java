@@ -21,6 +21,10 @@ public class ProdutoCategoria {
         this.nomeCat = nomeCat;
     }
 
+    public ProdutoCategoria() {
+       
+    }
+
     public String getNomeProduto() {
         return nomeProd;
     }
